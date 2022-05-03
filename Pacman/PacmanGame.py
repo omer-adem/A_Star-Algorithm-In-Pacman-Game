@@ -133,7 +133,6 @@ route = []
 result = Node(0,0)
 AI_Time = 0
 
-game_start = False
 
 while 1:
     for event in pygame.event.get():
@@ -151,9 +150,6 @@ while 1:
         if event.type == pygame.KEYDOWN and event.key == pygame.K_UP and Col_Map[y-1][x] != 1:
             pacmanrect = pacmanrect.move([0,-speed])
             y = y-1
-    
-    if not game_start:
-        continue
     
     if result.x != x or result.y != y and AI_Time > 499:
         result = A_star(Nodes[enemy_y*y_const + enemy_x],Nodes[y*y_const+x])
